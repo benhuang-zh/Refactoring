@@ -31,19 +31,17 @@ public class GildedRose {
     public static void updateQuality() {
         for (Item item : items) {
             String itemName = item.getName();
-            if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
-            } else {
-                item.setSellIn(item.getSellIn() - 1);
-            }
-
             if (("Aged Brie".equals(itemName))) {
+                item.setSellIn(item.getSellIn() - 1);
                 updateAgedBrieQuality(item);
                 updateAgedBrieQuatity2(item);
             } else if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
+                item.setSellIn(item.getSellIn() - 1);
                 updateBackstagePassesQuatity(item);
                 updateBackstagePassesQuatity2(item);
             } else if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
             } else {
+                item.setSellIn(item.getSellIn() - 1);
                 if (item.getQuality() > 0) {
                     item.setQuality(item.getQuality() - 1);
                 }
