@@ -23,7 +23,7 @@ public class GildedRose {
         updateQuality();
     }
 
-    static void addItem(Item item){
+    static void addItem(Item item) {
         items = new ArrayList<Item>();
         items.add(item);
     }
@@ -35,21 +35,23 @@ public class GildedRose {
                 item.setSellIn(item.getSellIn() - 1);
             }
 
-            if (("Aged Brie".equals(itemName)) || "Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
+            if (("Aged Brie".equals(itemName))) {
+                if (item.getQuality() < 50) {
+                    item.setQuality(item.getQuality() + 1);
+                }
+            } else if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
                 if (item.getQuality() < 50) {
                     item.setQuality(item.getQuality() + 1);
 
-                    if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
-                        if (item.getSellIn() < 10) {
-                            if (item.getQuality() < 50) {
-                                item.setQuality(item.getQuality() + 1);
-                            }
+                    if (item.getSellIn() < 10) {
+                        if (item.getQuality() < 50) {
+                            item.setQuality(item.getQuality() + 1);
                         }
+                    }
 
-                        if (item.getSellIn() < 5) {
-                            if (item.getQuality() < 50) {
-                                item.setQuality(item.getQuality() + 1);
-                            }
+                    if (item.getSellIn() < 5) {
+                        if (item.getQuality() < 50) {
+                            item.setQuality(item.getQuality() + 1);
                         }
                     }
                 }
