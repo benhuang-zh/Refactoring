@@ -36,25 +36,9 @@ public class GildedRose {
             }
 
             if (("Aged Brie".equals(itemName))) {
-                if (item.getQuality() < 50) {
-                    item.setQuality(item.getQuality() + 1);
-                }
+                updateAgedBrieQuality(item);
             } else if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
-                if (item.getQuality() < 50) {
-                    item.setQuality(item.getQuality() + 1);
-
-                    if (item.getSellIn() < 10) {
-                        if (item.getQuality() < 50) {
-                            item.setQuality(item.getQuality() + 1);
-                        }
-                    }
-
-                    if (item.getSellIn() < 5) {
-                        if (item.getQuality() < 50) {
-                            item.setQuality(item.getQuality() + 1);
-                        }
-                    }
-                }
+                updat3eBackstagePassesQuatity(item);
             } else {
                 if (item.getQuality() > 0) {
                     if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
@@ -65,13 +49,9 @@ public class GildedRose {
 
 
             if ("Aged Brie".equals(itemName)) {
-                if (item.getQuality() < 50 && item.getSellIn() < 0) {
-                    item.setQuality(item.getQuality() + 1);
-                }
+                updateAgedBrieQuatity2(item);
             } else if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
-                if (item.getSellIn() < 0) {
-                    item.setQuality(0);
-                }
+                updateBackstagePassesQuatity2(item);
             } else {
                 if (item.getQuality() > 0 && item.getSellIn() < 0) {
                     if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
@@ -81,6 +61,42 @@ public class GildedRose {
             }
         }
 
+    }
+
+    private static void updateBackstagePassesQuatity2(Item item) {
+        if (item.getSellIn() < 0) {
+            item.setQuality(0);
+        }
+    }
+
+    private static void updateAgedBrieQuatity2(Item item) {
+        if (item.getQuality() < 50 && item.getSellIn() < 0) {
+            item.setQuality(item.getQuality() + 1);
+        }
+    }
+
+    private static void updat3eBackstagePassesQuatity(Item item) {
+        if (item.getQuality() < 50) {
+            item.setQuality(item.getQuality() + 1);
+
+            if (item.getSellIn() < 10) {
+                if (item.getQuality() < 50) {
+                    item.setQuality(item.getQuality() + 1);
+                }
+            }
+
+            if (item.getSellIn() < 5) {
+                if (item.getQuality() < 50) {
+                    item.setQuality(item.getQuality() + 1);
+                }
+            }
+        }
+    }
+
+    private static void updateAgedBrieQuality(Item item) {
+        if (item.getQuality() < 50) {
+            item.setQuality(item.getQuality() + 1);
+        }
     }
 
 }
