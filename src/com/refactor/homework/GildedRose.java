@@ -31,7 +31,8 @@ public class GildedRose {
     public static void updateQuality() {
         for (Item item : items) {
             String itemName = item.getName();
-            if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
+            if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
+            } else {
                 item.setSellIn(item.getSellIn() - 1);
             }
 
@@ -43,14 +44,16 @@ public class GildedRose {
                 updateBackstagePassesQuatity2(item);
             } else {
                 if (item.getQuality() > 0) {
-                    if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
+                    if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
+                    } else {
                         item.setQuality(item.getQuality() - 1);
                     }
                 }
                 if (item.getQuality() > 0 && item.getSellIn() < 0) {
-                    if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
-                        item.setQuality(item.getQuality() - 1);
+                    if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
+                        continue;
                     }
+                    item.setQuality(item.getQuality() - 1);
                 }
             }
         }
