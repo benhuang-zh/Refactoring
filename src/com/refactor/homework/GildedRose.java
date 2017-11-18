@@ -30,9 +30,10 @@ public class GildedRose {
 
     public static void updateQuality() {
         for (Item item : items) {
-            if ((!"Aged Brie".equals(item.getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+            String itemName = item.getName();
+            if ((!"Aged Brie".equals(itemName)) && !"Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
                 if (item.getQuality() > 0) {
-                    if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+                    if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
                         item.setQuality(item.getQuality() - 1);
                     }
                 }
@@ -40,7 +41,7 @@ public class GildedRose {
                 if (item.getQuality() < 50) {
                     item.setQuality(item.getQuality() + 1);
 
-                    if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+                    if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
                         if (item.getSellIn() < 11) {
                             if (item.getQuality() < 50) {
                                 item.setQuality(item.getQuality() + 1);
@@ -56,15 +57,15 @@ public class GildedRose {
                 }
             }
 
-            if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+            if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
                 item.setSellIn(item.getSellIn() - 1);
             }
 
             if (item.getSellIn() < 0) {
-                if (!"Aged Brie".equals(item.getName())) {
-                    if (!"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+                if (!"Aged Brie".equals(itemName)) {
+                    if (!"Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
                         if (item.getQuality() > 0) {
-                            if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+                            if (!"Sulfuras, Hand of Ragnaros".equals(itemName)) {
                                 item.setQuality(item.getQuality() - 1);
                             }
                         }
