@@ -23,6 +23,10 @@ public class GildedRose {
         updateQuality();
     }
 
+    static void addItem(Item item){
+        items = new ArrayList<Item>();
+        items.add(item);
+    }
 
     public static void updateQuality() {
         for (int i = 0; i < items.size(); i++) {
