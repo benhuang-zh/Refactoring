@@ -11,16 +11,12 @@ class BackstagePasses extends Item {
         if (this.getQuality() < 50) {
             this.setQuality(this.getQuality() + 1);
 
-            if (this.getSellIn() < 10) {
-                if (this.getQuality() < 50) {
-                    this.setQuality(this.getQuality() + 1);
-                }
+            if (this.getSellIn() < 10 && this.getQuality() < 50) {
+                this.setQuality(this.getQuality() + 1);
             }
 
-            if (this.getSellIn() < 5) {
-                if (this.getQuality() < 50) {
-                    this.setQuality(this.getQuality() + 1);
-                }
+            if (this.getSellIn() < 5 && this.getQuality() < 50) {
+                this.setQuality(this.getQuality() + 1);
             }
         }
         if (this.getSellIn() < 0) {
