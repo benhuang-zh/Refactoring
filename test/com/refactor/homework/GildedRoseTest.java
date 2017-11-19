@@ -8,7 +8,7 @@ public class GildedRoseTest {
 
     @Test
     public void once_the_sell_by_date_has_passed_Quality_degrades_twice_as_fast() {
-        Item item = new Item("+5 Dexterity Vest", 0, 10);
+        Item item = Item.createItem("+5 Dexterity Vest", 0, 10);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -17,7 +17,7 @@ public class GildedRoseTest {
 
     @Test
     public void the_Quality_of_an_item_is_never_negative(){
-        Item item = new Item("+5 Dexterity Vest", 0, 0);
+        Item item = Item.createItem("+5 Dexterity Vest", 0, 0);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -26,7 +26,7 @@ public class GildedRoseTest {
 
     @Test
     public void Aged_Brie_actually_increases_in_Quality_the_older_it_gets(){
-        Item item = new Item("Aged Brie", 1, 0);
+        Item item = Item.createItem("Aged Brie", 1, 0);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -35,7 +35,7 @@ public class GildedRoseTest {
 
     @Test
     public void the_Quality_of_an_item_is_never_more_than_50(){
-        Item item = new Item("Aged Brie", 1, 50);
+        Item item = Item.createItem("Aged Brie", 1, 50);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -44,7 +44,7 @@ public class GildedRoseTest {
 
     @Test
     public void Sulfuras_being_a_legendary_item_never_has_to_be_sold_or_decreases_in_Quality(){
-        Item item = new Item("Sulfuras, Hand of Ragnaros", 5, 10);
+        Item item = Item.createItem("Sulfuras, Hand of Ragnaros", 5, 10);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -54,7 +54,7 @@ public class GildedRoseTest {
 
     @Test
     public void Backstage_passes_Quality_increases_in_Quality_as_its_SellIn_value_approaches(){
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 10);
+        Item item = Item.createItem("Backstage passes to a TAFKAL80ETC concert", 15, 10);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -64,7 +64,7 @@ public class GildedRoseTest {
 
     @Test
     public void Backstage_passes_Quality_increases_2_when_there_are_10_days_or_less(){
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10);
+        Item item = Item.createItem("Backstage passes to a TAFKAL80ETC concert", 10, 10);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -74,7 +74,7 @@ public class GildedRoseTest {
 
     @Test
     public void Backstage_passes_Quality_increases_3_when_there_are_3_days_or_less(){
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 4, 10);
+        Item item = Item.createItem("Backstage passes to a TAFKAL80ETC concert", 4, 10);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 
@@ -84,7 +84,7 @@ public class GildedRoseTest {
 
     @Test
     public void Backstage_passes_Quality_drops_to_0_after_the_concert(){
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10);
+        Item item = Item.createItem("Backstage passes to a TAFKAL80ETC concert", 0, 10);
         GildedRose.addItem(item);
         GildedRose.updateQuality();
 

@@ -5,10 +5,14 @@ public class Item {
 	public int sellIn; 
     public int quality; 
     
-    public Item(String name, int sellIn, int quality) {
+    private Item(String name, int sellIn, int quality) {
 		this.setName(name);
 		this.setSellIn(sellIn);
 		this.setQuality(quality);
+	}
+
+	public static Item createItem(String name, int sellIn, int quality) {
+		return new Item(name, sellIn, quality);
 	}
 
 	void updateQuality() {
