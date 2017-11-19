@@ -1,61 +1,33 @@
 package com.refactor.homework;
 
-public class Item {
+public abstract class Item {
+    public static final String AGED_BRIE = "Aged Brie";
+    public static final String BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
+    public static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
     private String name;
     private int sellIn;
     private int quality;
 
-    private Item(String name, int sellIn, int quality) {
+    Item(String name, int sellIn, int quality) {
         this.setName(name);
         this.setSellIn(sellIn);
         this.setQuality(quality);
     }
 
     public static Item createItem(String name, int sellIn, int quality) {
-        return new Item(name, sellIn, quality);
-    }
-
-    void updateQuality() {
-        String itemName = this.getName();
-        if (("Aged Brie".equals(itemName))) {
-            this.setSellIn(this.getSellIn() - 1);
-            if (this.getQuality() < 50) {
-                this.setQuality(this.getQuality() + 1);
-            }
-            if (this.getQuality() < 50 && this.getSellIn() < 0) {
-                this.setQuality(this.getQuality() + 1);
-            }
-        } else if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
-            this.setSellIn(this.getSellIn() - 1);
-            if (this.getQuality() < 50) {
-                this.setQuality(this.getQuality() + 1);
-
-                if (this.getSellIn() < 10) {
-                    if (this.getQuality() < 50) {
-                        this.setQuality(this.getQuality() + 1);
-                    }
-                }
-
-                if (this.getSellIn() < 5) {
-                    if (this.getQuality() < 50) {
-                        this.setQuality(this.getQuality() + 1);
-                    }
-                }
-            }
-            if (this.getSellIn() < 0) {
-                this.setQuality(0);
-            }
-        } else if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
-        } else {
-            this.setSellIn(this.getSellIn() - 1);
-            if (this.getQuality() > 0) {
-                this.setQuality(this.getQuality() - 1);
-            }
-            if (this.getQuality() > 0 && this.getSellIn() < 0) {
-                this.setQuality(this.getQuality() - 1);
-            }
+        switch (name) {
+            case AGED_BRIE:
+                return new AgedBrie(name, sellIn, quality);
+            case BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT:
+                return new BackstagePasses(name, sellIn, quality);
+            case SULFURAS_HAND_OF_RAGNAROS:
+                return new Sulfuras(name, sellIn, quality);
+            default:
+                return new Common(name, sellIn, quality);
         }
     }
+
+    abstract void updateQuality();
 
     /* Generated getter and setter code */
     public String getName() {
