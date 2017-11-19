@@ -1,9 +1,9 @@
 package com.refactor.homework;
 
 public class Item {
-    public String name;
-    public int sellIn;
-    public int quality;
+    private String name;
+    private int sellIn;
+    private int quality;
 
     private Item(String name, int sellIn, int quality) {
         this.setName(name);
