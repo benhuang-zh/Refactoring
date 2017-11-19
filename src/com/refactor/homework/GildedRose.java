@@ -30,63 +30,9 @@ public class GildedRose {
 
     public static void updateQuality() {
         for (Item item : items) {
-            String itemName = item.getName();
-            if (("Aged Brie".equals(itemName))) {
-                item.setSellIn(item.getSellIn() - 1);
-                updateAgedBrieQuality(item);
-                updateAgedBrieQuatity2(item);
-            } else if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
-                item.setSellIn(item.getSellIn() - 1);
-                updateBackstagePassesQuatity(item);
-                updateBackstagePassesQuatity2(item);
-            } else if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
-            } else {
-                item.setSellIn(item.getSellIn() - 1);
-                if (item.getQuality() > 0) {
-                    item.setQuality(item.getQuality() - 1);
-                }
-                if (item.getQuality() > 0 && item.getSellIn() < 0) {
-                    item.setQuality(item.getQuality() - 1);
-                }
-            }
+            item.updateQuality();
         }
 
-    }
-
-    private static void updateBackstagePassesQuatity2(Item item) {
-        if (item.getSellIn() < 0) {
-            item.setQuality(0);
-        }
-    }
-
-    private static void updateAgedBrieQuatity2(Item item) {
-        if (item.getQuality() < 50 && item.getSellIn() < 0) {
-            item.setQuality(item.getQuality() + 1);
-        }
-    }
-
-    private static void updateBackstagePassesQuatity(Item item) {
-        if (item.getQuality() < 50) {
-            item.setQuality(item.getQuality() + 1);
-
-            if (item.getSellIn() < 10) {
-                if (item.getQuality() < 50) {
-                    item.setQuality(item.getQuality() + 1);
-                }
-            }
-
-            if (item.getSellIn() < 5) {
-                if (item.getQuality() < 50) {
-                    item.setQuality(item.getQuality() + 1);
-                }
-            }
-        }
-    }
-
-    private static void updateAgedBrieQuality(Item item) {
-        if (item.getQuality() < 50) {
-            item.setQuality(item.getQuality() + 1);
-        }
     }
 
 }

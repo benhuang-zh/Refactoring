@@ -10,7 +10,49 @@ public class Item {
 		this.setSellIn(sellIn);
 		this.setQuality(quality);
 	}
-    
+
+	void updateQuality() {
+		String itemName = this.getName();
+        if (("Aged Brie".equals(itemName))) {
+            this.setSellIn(this.getSellIn() - 1);
+			if (this.getQuality() < 50) {
+                this.setQuality(this.getQuality() + 1);
+            }
+			if (this.getQuality() < 50 && this.getSellIn() < 0) {
+                this.setQuality(this.getQuality() + 1);
+            }
+		} else if ("Backstage passes to a TAFKAL80ETC concert".equals(itemName)) {
+            this.setSellIn(this.getSellIn() - 1);
+			if (this.getQuality() < 50) {
+                this.setQuality(this.getQuality() + 1);
+
+                if (this.getSellIn() < 10) {
+                    if (this.getQuality() < 50) {
+                        this.setQuality(this.getQuality() + 1);
+                    }
+                }
+
+                if (this.getSellIn() < 5) {
+                    if (this.getQuality() < 50) {
+                        this.setQuality(this.getQuality() + 1);
+                    }
+                }
+            }
+			if (this.getSellIn() < 0) {
+                this.setQuality(0);
+            }
+		} else if ("Sulfuras, Hand of Ragnaros".equals(itemName)) {
+        } else {
+            this.setSellIn(this.getSellIn() - 1);
+            if (this.getQuality() > 0) {
+                this.setQuality(this.getQuality() - 1);
+            }
+            if (this.getQuality() > 0 && this.getSellIn() < 0) {
+                this.setQuality(this.getQuality() - 1);
+            }
+        }
+    }
+
 	/* Generated getter and setter code */
     public String getName() {
 		return name;
