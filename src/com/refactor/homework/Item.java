@@ -14,7 +14,7 @@ public abstract class Item {
         this.setQuality(quality);
     }
 
-    public static Item createItem(String name, int sellIn, int quality) {
+    public static Item create(String name, int sellIn, int quality) {
         switch (name) {
             case AGED_BRIE:
                 return new AgedBrie(name, sellIn, quality);
